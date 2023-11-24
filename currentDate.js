@@ -1,4 +1,10 @@
-const time = document.querySelector('.time');
+
+const hours = document.querySelector('.hours');
+const hours1 = document.querySelector('.hours1');
+const minutes = document.querySelector('.minutes');
+const minutes1 = document.querySelector('.minutes1');
+const seconds = document.querySelector('.seconds');
+const seconds1 = document.querySelector('.seconds1');
 const toDay = document.querySelector('.toDay');
 const greenting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
@@ -13,11 +19,22 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 function showTime() {
     let today = new Date();
-    time.innerHTML = today.toLocaleTimeString();
+    let hh = today.getHours();
+    let min= today.getMinutes();
+    let sec = today.getSeconds();
+
+    hours.innerHTML = `${addZero(hh)}`;
+    minutes.innerHTML = `${addZero(min)}`;
+    seconds.innerHTML = `${addZero(sec)}`;
+
     if (toDay.innerHTML !== showDate(today)) {
         toDay.innerHTML = showDate(today);
     }
     setTimeout(showTime, 1000);
+}
+
+function addZero(n) {
+    return (parseInt(n, 10) < 10 ? '0' : '') + n;
 }
 
 function showDate(today) {

@@ -7,13 +7,11 @@
     font-family: "Poppins", sans-serif;
 }
 
-.body {
-}
-
-.container {
-    height: 100vh;
+body {
+    min-height: 100vh;
     width: 100%;
-    background: url("images/background.jpg");
+    transition: background-image .5s;
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -27,20 +25,77 @@
     justify-content: center;
     color: white;
     width: 600px;
+    padding-top: 150px;
+
 }
 
-.time {
-    font-size: 128px;
+.date__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 170px;
     margin-bottom: 48px;
+    text-align: center;
+    gap: 10px;
+    font-weight: 600;
 }
+
+.hours,
+.minutes,
+.seconds {
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 15px;
+    width: 220px;
+}
+
 
 h1 {
     margin-bottom: 24px;
 }
 
+.quote {
+    height: 300px;
+    width: 100%;
+    padding-top: 100px;
+
+}
+
+#content {
+    font-weight: 500;
+    font-size: 20px;
+    text-align: left;
+    font-style: italic;
+}
+
+#author {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: right;
+}
+
+.update__background {
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-image: url('./images/icons/update.png');
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    cursor: pointer;
+}
+
 /*--------------section weather--------------*/
 
 .weather {
+    top: 50px;
+    right: 50px;
     position: relative;
     width: 400px;
     height: 100px;
@@ -226,50 +281,193 @@ h1 {
 
 /*--------------section To-Do List--------------*/
 
-.toDoList {
-    text-align: center;
+.todo-list {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    width: 400px;
+    height: 600px;
     background: rgba(255, 255, 255, .1);
     backdrop-filter: blur(30px);
     border: 2px solid rgba(255, 255, 255, .2);
-    width: 400px;
-    height: 200px;
-    border-radius: 20px;
-    padding: 0 5px 0 5px;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    transition: height .6s ease;
+
+}
+
+.todo-list__field {
+    width: 100%;
+    position: relative;
+}
+
+.add__task {
+    height: 50px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.add-field {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 48px 0 42px;
+}
+
+.add-field::placeholder {
     color: white;
 }
 
-.toDoList h2 {
-    margin-bottom: 30px;
+.add-button {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+    padding: 0 45px 0 15px;
 }
 
-.todo__wrapper {
+.pending__tasks {
+    margin: 20px 0;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    border-bottom: 2px solid white;
+}
+
+.task {
+    border-bottom: 1px solid lightgrey;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    height: 45px;
+}
+
+.task.completed .ticket {
+    background-image: url(./images/icons/tick.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+}
+
+.task.completed .text {
+    text-decoration: line-through;
+}
+
+.ticket {
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 3px;
+    background-color: transparent;
+    outline: none;
+}
+
+.text,
+.edit {
+    width: 70%;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.edit {
+    display: none;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.buttons__wrapper {
+    width: 23%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-btn {
+    width: 40px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.save-btn {
+    display: none;
+    width: 40px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.delete-btn {
+    width: 40px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.completed__tasks {
+    margin: 20px 0;
+    height: 200px;
+    overflow: auto;
+}
+
+.buttons_wrapper {
+    height: 50px;
     display: flex;
     align-items: center;
-    background: #edeef0;
-    justify-content: space-between;
-    border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
-.todo__wrapper input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 10px;
-    font-weight: 14;
-    background: transparent;
-}
-
-.todo__wrapper button {
-    border: none;
-    outline: none;
-    padding: 16px 50px;
-    background: dodgerblue;
-    color: white;
-    font-size: 16px;
+.buttons_wrapper button {
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, .2);
+    padding: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    border-radius: 30px;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
 }
-
-

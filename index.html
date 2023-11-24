@@ -7,64 +7,80 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<div class="container">
-    <section class="toDoList">
-        <h2>To-Do List</h2>
-        <div class="todo__wrapper">
-            <input id = 'addField' type="text" placeholder="Add your task">
-            <button id = 'addBtn'>Add</button>
-        </div>
-    </section>
-    <section class="date">
-        <span class="time"></span>
-        <h1 class="toDay"></h1>
-        <h1>
-            <span class="greeting"></span>
-            <span class="name" contenteditable="true">[enter name]</span>
-        </h1>
-        <h2>What Is Your Focus For Today?</h2>
-        <h2 class="focus" contenteditable="true">[enter focus]</h2>
-    </section>
-    <section class="weather">
-        <div class="search-container">
-            <i class='bx bxs-map'></i>
-            <input type="text" placeholder="введите город">
-            <button class="bx bx-search-alt"></button>
-        </div>
-        <div class="weather-container">
-            <div class="weather-box">
-                <div class="box">
-                    <img src=" images/clear.png" alt="weather icon">
-                    <p class="temp"></p>
-                    <p class="description"></p>
-                </div>
-            </div>
-        </div>
-        <div class="weather-details">
-            <div class="humidity">
-                <i class='bx bx-water'></i>
-                <div class="info-humidity">
-                    <span></span>
-                    <p>Влажность</p>
-                </div>
-            </div>
-            <div class="wind">
-                <i class='bx bx-wind'></i>
-                <div class="info-wind">
-                    <span></span>
-                    <p>Скорость ветра</p>
-                </div>
-            </div>
-        </div>
-        <div class="not-found">
+<button id="update" class="update__background"></button>
+<section class="todo-list">
+    <div class="add__task todo-list__field">
+        <input id="addField" class="add-field" type="text" placeholder="add your task">
+        <button id="addBtn" class="add-button"><i class='bx bx-task'></i></button>
+    </div>
+    <div id="pendingTasks" class="pending__tasks todo-list__field"></div>
+    <div id="completedTasks" class="completed__tasks todo-list__field"></div>
+    <div class="buttons_wrapper todo-list__field">
+        <button id="saveLS">Save storage</button>
+        <button id="loadLS">Load storage</button>
+    </div>
+</section>
+<section class="date">
+    <div class="date__wrapper">
+        <div class="hours"></div>
+        <span>:</span>
+        <div class="minutes"></div>
+        <span>:</span>
+        <div class="seconds"></div>
+    </div>
+    <h1 class="toDay"></h1>
+    <h1>
+        <span class="greeting"></span>
+        <span class="name" contenteditable="true">[enter name]</span>
+    </h1>
+    <h2>What Is Your Focus For Today?</h2>
+    <h2 class="focus" contenteditable="true">[enter focus]</h2>
+    <div class="quote">
+        <p id="content">Quote Content Here</p>
+        <p id="author">Quote Author Here</p>
+    </div>
+</section>
+<section class="weather">
+    <div class="search-container">
+        <i class='bx bxs-map'></i>
+        <input type="text" placeholder="enter city">
+        <button class="bx bx-search-alt"></button>
+    </div>
+    <div class="weather-container">
+        <div class="weather-box">
             <div class="box">
-                <img src="images/404.png" alt="404">
-                <p>Город не найден!!!</p>
+                <img src="" alt="weather icon">
+                <p class="temp"></p>
+                <p class="description"></p>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+    <div class="weather-details">
+        <div class="humidity">
+            <i class='bx bx-water'></i>
+            <div class="info-humidity">
+                <span></span>
+                <p>Humidity</p>
+            </div>
+        </div>
+        <div class="wind">
+            <i class='bx bx-wind'></i>
+            <div class="info-wind">
+                <span></span>
+                <p>Wind Speed</p>
+            </div>
+        </div>
+    </div>
+    <div class="not-found">
+        <div class="box">
+            <img src="./images/weather/404.png" alt="404">
+            <p>Город не найден!!!</p>
+        </div>
+    </div>
+</section>
+<script src="update_bg.js"></script>
 <script src="currentDate.js"></script>
+<script src="quote.js"></script>
 <script src="weather.js"></script>
 <script src="toDoList.js"></script>
 </body>
