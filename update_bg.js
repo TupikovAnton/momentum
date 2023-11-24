@@ -33,9 +33,4 @@ updateBtn.addEventListener('click', () => {
     updateQuote();
 })
 
-setInterval(() => {
-    const date = new Date();
-    if (date.getMinutes() === 0 && date.getSeconds() === 0) {
-        updateBackground();
-    }
-}, 1000);
+
